@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>가위바위보 게임</title>
+  </head>
+  <body>
+    <div class="header">지면 메로나 사오기</div>
+    <div class="wrapper">
+      <div class="left">
+        <div class="left-img">
+          <img class="com" src="images/가위.png" alt="가위" />
+        </div>
+        <p class="cham-title">가위바위보 세계 챔피언</p>
+      </div>
+      <div class="center">
+        <p class="vs">VS</p>
+        <section class="rsp-section">
+          <button class="scissor">가위</button>
+          <button class="rock">바위</button>
+          <button class="paper">보</button>
+        </section>
+        <section class="retry-section">
+          <button class="retry">다시하기</button>
+        </section>
+      </div>
+      <div class="right">
+        <div class="right-img">
+          <img class="myImage" src="images/바위.png" alt="주먹" />
+        </div>
+        <p class="user-title">플레이어</p>
+      </div>
+    </div>
+    <script>
+      const s = document.querySelector(".scissor");
+      const p = document.querySelector(".paper");
+      const r = document.querySelector(".rock");
+      const com = document.querySelector(".com");
+      const myImg = document.querySelector(".myImage");
+      const arr = ["images/가위.png", "images/바위.png", "images/보.png"];
+
+      let num = 0;
+
+      const myId = setInterval(function () {
+        myImg.src = arr[num % arr.length];
+        num += 1;
+      }, 50);
+
+      const comId = setInterval(function () {
+        com.src = arr[num % arr.length];
+        num += 1;
+      }, 50);
+
+      s.addEventListener("click", function () {
+        clearInterval(comId);
+        clearInterval(myId);
+        myImg.src = `images/가위.png`;
+        com.src = arr[Math.trunc(Math.random() * 3)];
+      });
+
+      r.addEventListener("click", function () {
+        clearInterval(comId);
+        clearInterval(myId);
+        myImg.src = `images/바위.png`;
+        com.src = arr[Math.trunc(Math.random() * 3)];
+      });
+
+      p.addEventListener("click", function () {
+        clearInterval(comId);
+        clearInterval(myId);
+        myImg.src = `images/보.png`;
+        com.src = arr[Math.trunc(Math.random() * 3)];
+      });
+    </script>
+  </body>
+</html>

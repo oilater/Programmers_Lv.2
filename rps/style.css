@@ -1,0 +1,63 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    font-size: 3rem;
+    width: 4em;
+    height: 2em;
+}
+
+img {
+    width: 90%;
+}
+.header {
+    margin-top: 5rem;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.wrapper {
+    display: flex;
+    height: 70vh;
+    margin-top: 6em;
+
+}
+
+.left {
+    flex-direction: column;
+    width: 33%;
+
+}
+
+.center {
+    flex-direction: column;
+    width: 34%;
+}
+
+.center .vs {
+    margin-top: 1em;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.rsp-section {
+    margin-top:10em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.retry-section {
+    margin-top: 2rem;
+}
+
+
+.right {
+    flex-direction: column;
+    width: 33%;
+}
+
+.cham-title, .user-title {
+    font-size: 1.5em;
+}
