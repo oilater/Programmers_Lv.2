@@ -3,14 +3,17 @@
 function solution(people, limit) {
   people.sort((a, b) => a - b);
   let count = 0;
+  let index = 0;
   while (people.length !== 0) {
-    if (people[0] + people.at(-1) > limit) {
+    if (people[index] + people.at(-1) > limit) {
       people.pop();
       count++;
-    } else if (people[0] + people.at(-1) <= limit) {
+    } else if (people[index] + people.at(-1) <= limit) {
       people.pop();
-      people.shift();
+      index++;
       count++;
+    } else {
+      break;
     }
   }
   return count;
@@ -20,5 +23,3 @@ console.log(solution([70, 50, 80, 50], 100)); // 3
 console.log(solution([70, 80, 50], 100)); // 3
 
 console.log(solution([60, 40, 50, 80, 50], 100)); // 3
-
-//정확성 통과, 효율성 시간초과
