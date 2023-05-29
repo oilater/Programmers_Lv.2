@@ -13,7 +13,6 @@ function solution(arr1, arr2) {
     }
     answer.push(temp);
   }
-
   return answer;
 }
 

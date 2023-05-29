@@ -1,29 +1,19 @@
-function validAnagram(s1, s2) {
-  if (s1.length !== s2.length) return false;
-
-  const obj = {};
-
-  for (let i = 0; i < s1.length; i++) {
-    let letter = s1[i];
-    obj[letter] ? (obj[letter] += 1) : (obj[letter] = 1);
+function slidingWindow(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return null;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
   }
+  tempSum = maxSum;
 
-  for (let i = 0; i < s2.length; i++) {
-    let letter = s2[i];
-    if (!obj[letter]) {
-      return false;
-    } else {
-      obj[letter] -= 1;
-    }
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
   }
-  return true;
+  return maxSum;
 }
 
-validAnagram("", ""); // true
-validAnagram("aaz", "zza"); // false
-validAnagram("anagram", "nagaram"); // true
-validAnagram("rat", "car"); // false) // false
-validAnagram("awesome", "awesom"); // false
-validAnagram("amanaplanacanalpanama", "acanalmanplanpamana"); // false
-console.log(validAnagram("qwerty", "qeywrt")); // true
-validAnagram("texttwisttime", "timetwisttext"); // true
+console.log(slidingWindow([2, 5, 43, 3, 2, 2, 4, 5], 3));
+
+// O(N)
