@@ -1,9 +1,16 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/42578?language=javascript
 
 function solution(clothes) {
-  let answer = 0;
+  let count = clothes.length;
+  const hash = new Map();
+  clothes.forEach((v) =>
+    hash.get(v[1]) ? hash.set(v[1], hash.get(v[1]) + 1) : hash.set(v[1], 1)
+  );
 
-  return answer;
+  if (hash.size === 1) return count;
+  const sum = [...hash].reduce((acc, cur) => acc * cur[1], 1);
+
+  return count + sum;
 }
 
 console.log(
